@@ -94,3 +94,30 @@ function countLetters(iterable, maxDeep = 1, deep = 1, counters = {}, childs = [
 console.log(
     JSON.stringify(countLetters(excuses))
 )
+
+/**
+ * Drop duplicates
+ */
+
+function inArray(item,array) {
+    // Is item into array?
+    let found = false;
+    for (let i=0 ; i < array.length && !found ; i++) {
+        if (array[i] === item) found = true;
+    }
+    return found;
+}
+
+function dropDuplicated(array){
+    let newArray = []
+    let nextArrayIdx = newArray.length
+    for (let i=0 ; i < array.length ; i++) {
+        let item = array[i];
+        if ( !inArray(item,newArray) ) newArray[nextArrayIdx++] = item;
+    }
+    return newArray;
+}
+
+//console.log(inArray("10",surnames))
+//console.log(inArray(10,surnames))
+//console.log(dropDuplicated(duplicados))
