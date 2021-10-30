@@ -41,3 +41,4 @@ La fórmula ```newArray[lastElementIdx - i] = array[i]``` genera un índice en o
 ## Dudas:
 * ¿Empleo bien el término iteración en countLetters? ¿debería de hablar de instancias?
 * ¿Donde encuentro información sobre operaciones seguras para programación asyncrona en JS? No tengo claro si esta forma de trabajo sería segura en una implementación asíncrona de la función countLetters.
+* Creo que existe una forma normalizada de documentar las funciones. ¿Podrías recomendarme alguna lectura al respecto?.
