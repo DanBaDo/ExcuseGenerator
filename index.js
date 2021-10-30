@@ -42,3 +42,55 @@ function buildExcuse(names, surnames, excuses) {
 
 console.log(buildExcuse(names, surnames, excuses))
 //console.log(buildExcuse(num, surnames, excuses))
+
+/**
+ * Characters ratio
+ */
+
+function countLetters(iterable, maxDeep = 1, deep = 1, counters = {}, childs = [1]) {
+    //
+    //  Iterares over arrays and strings searching for characters and counting each of them.
+    //  Keep tracking deep level and running childs for deep limith and control end reach.
+    //
+
+    if ( deep > maxDeep+1 ) {
+        console.log("Max deep reached.");
+        childs[0]--
+        return;
+    }
+    
+    for (let i=0; i < iterable.length; i++) {
+        // Iterating over items 
+        let item = iterable[i];
+        if ( Array.isArray(item) || (typeof(item) === "string" && item.length > 1) ) {
+            // Iterate if it's array or string and not a single character 
+            childs[0]++
+            countLetters(item, maxDeep, deep+1 , counters, childs); // Recursing
+        } else if (typeof(item) === "string" ) {
+            // Count if it's a single character 
+            if (counters.hasOwnProperty(item)) {
+                counters[item] += 1;
+            } else {
+                counters[item] = 1;
+            }
+        }
+    }
+
+    childs[0]--
+
+    if ( childs[0] === 0 ) {
+        return {...counters}
+    }
+}
+
+/*console.log(
+    JSON.stringify(countLetters(excuses, 3))
+)*/
+
+/*console.log(
+    JSON.stringify(countLetters(excuses, 2))
+)*/
+
+console.log(
+    JSON.stringify(countLetters(excuses))
+)
