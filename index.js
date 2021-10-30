@@ -121,3 +121,20 @@ function dropDuplicated(array){
 //console.log(inArray("10",surnames))
 //console.log(inArray(10,surnames))
 //console.log(dropDuplicated(duplicados))
+
+/**
+ * Reverse
+ */
+
+ function reverse(array) {
+    let lastElementIdx = array.length - 1
+    const newArray = [];
+    //Cross over array in inverse order
+    for (let i = lastElementIdx; i >= 0; i--) {
+        //Add elements to newArray, starting by idx 0.
+        newArray[lastElementIdx - i] = array[i]
+    }
+    return newArray
+}
+
+console.log(reverse(excuses))
